@@ -1,0 +1,295 @@
+/* Détection du thème système */
+:root {
+  --background-color: #ffffff;
+  --text-color: #000000;
+  --button-background: #007bff;
+  --button-hover: #0056b3;
+  --container-background: #f2f2f2;
+  --historique-background: #e0e0e0;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background-color: #1a1a1a;
+    --text-color: #ffffff;
+    --button-background: #f39c12;
+    --button-hover: #e67e22;
+    --container-background: #2a2a2a;
+    --historique-background: #3a3a3a;
+    --shadow-color: rgba(0, 0, 0, 0.5);
+  }
+}
+
+/* Corps général */
+body {
+  font-family: "Arial", sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Conteneur principal */
+.container {
+  background-color: var(--container-background);
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px var(--shadow-color);
+  width: 400px;
+  text-align: center;
+}
+
+/* Titre */
+h1 {
+  margin: 0 0 10px;
+  font-size: 24px;
+  color: var(--button-background);
+}
+
+/* Instructions */
+#instructions p {
+  font-size: 14px;
+  margin: 10px 0 20px;
+}
+
+/* Boutons de couleur */
+#choix-couleurs {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.couleur-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 2px 5px var(--shadow-color);
+  transition: transform 0.2s ease;
+}
+
+.couleur-btn:hover {
+  transform: scale(1.1);
+}
+
+/* Proposition actuelle */
+#proposition-container {
+  margin-bottom: 20px;
+}
+
+#proposition {
+  font-weight: bold;
+  font-size: 18px;
+  color: var(--button-background);
+}
+
+/* Boutons principaux */
+#verifierBtn,
+#supprimerBtn,
+#toggleTheme {
+  background-color: var(--button-background);
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 5px;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+#verifierBtn:hover,
+#supprimerBtn:hover,
+#toggleTheme:hover {
+  background-color: var(--button-hover);
+  transform: scale(1.05);
+}
+
+/* Historique */
+#historique ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+#historique li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  font-size: 14px;
+  background-color: var(--historique-background);
+  padding: 5px 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px var(--shadow-color);
+}
+
+/* Cercles de couleur dans l'historique */
+.proposition-visuelle {
+  display: flex;
+  gap: 5px;
+}
+
+.couleur {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid var(--container-background);
+}
+/* Thème clair */
+[data-theme="light"] {
+  --background-color: #ffffff;
+  --text-color: #000000;
+  --button-background: #007bff;
+  --button-hover: #0056b3;
+  --container-background: #f2f2f2;
+  --historique-background: #e0e0e0;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Thème sombre */
+[data-theme="dark"] {
+  --background-color: #1a1a1a;
+  --text-color: #ffffff;
+  --button-background: #f39c12;
+  --button-hover: #e67e22;
+  --container-background: #2a2a2a;
+  --historique-background: #3a3a3a;
+  --shadow-color: rgba(0, 0, 0, 0.5);
+}
+#toggleBtn {
+  background-color: var(--button-background);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 25px;
+  cursor: pointer;
+  display: flex;
+  align-items: end;
+  gap: 10px; /* Espace entre l'icône et le texte */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, transform 0.2s ease,
+    box-shadow 0.3s ease;
+}
+
+#toggleBtn:hover {
+  background-color: var(--button-hover);
+  transform: scale(1.05);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+#themeIcon {
+  font-size: 20px; /* Taille de l'icône */
+}
+.theme-switcher {
+  display: flex;
+  justify-content: center; /* Centre horizontalement */
+  align-items: center; /* Centre verticalement */
+  margin-bottom: 20px; /* Ajout d'un espace sous le bouton */
+}
+#score-container {
+  margin-bottom: 20px;
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--button-background);
+}
+@keyframes scoreAnimation {
+  0% {
+    transform: scale(1);
+    color: var(--button-background);
+  }
+  50% {
+    transform: scale(1.5);
+    color: var(--button-hover);
+  }
+  100% {
+    transform: scale(1);
+    color: var(--button-background);
+  }
+}
+
+#score {
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.score-animated {
+  animation: scoreAnimation 0.5s ease;
+}
+
+.auth-container {
+  max-width: 400px;
+  margin: 50px auto;
+  background-color: var(--container-background);
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px var(--shadow-color);
+  text-align: center;
+}
+
+.auth-container h1 {
+  margin-bottom: 20px;
+  color: var(--button-background);
+}
+
+.auth-container input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid var(--shadow-color);
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.auth-container button {
+  background-color: var(--button-background);
+  border: none;
+  padding: 10px 20px;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.auth-container button:hover {
+  background-color: var(--button-hover);
+  transform: scale(1.05);
+}
+
+.auth-container a {
+  display: block;
+  margin-top: 15px;
+  color: var(--button-background);
+  text-decoration: none;
+}
+
+.auth-container a:hover {
+  text-decoration: underline;
+}
+
+.flash-message {
+  margin: 15px 0;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.flash-message.success {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.flash-message.danger {
+  background-color: #f8d7da;
+  color: #721c24;
+}

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mastermind</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+
+  </head>
+  <body>
+    <div id="score-container">
+      <p id="score">Score : 1000</p>
+    </div>
+    <div class="container">
+      <div class="theme-switcher">
+        <button id="toggleBtn">
+          <span id="themeIcon">🌙</span>
+        </button>
+      </div>
+    
+      <h1>Jeu de Mastermind</h1>
+      <div id="instructions">
+        <p>Choisissez les couleurs pour créer votre proposition :</p>
+      </div>
+      <div id="choix-couleurs">
+        <button
+          class="couleur-btn"
+          data-couleur="R"
+          style="background-color: red"
+        >
+          R
+        </button>
+        <button
+          class="couleur-btn"
+          data-couleur="V"
+          style="background-color: green"
+        >
+          V
+        </button>
+        <button
+          class="couleur-btn"
+          data-couleur="B"
+          style="background-color: blue"
+        >
+          B
+        </button>
+        <button
+          class="couleur-btn"
+          data-couleur="J"
+          style="background-color: yellow"
+        >
+          J
+        </button>
+        <button
+          class="couleur-btn"
+          data-couleur="O"
+          style="background-color: orange"
+        >
+          O
+        </button>
+        <button
+          class="couleur-btn"
+          data-couleur="N"
+          style="background-color: black; color: white"
+        >
+          N
+        </button>
+      </div>
+      <div id="proposition-container">
+        <p>Votre proposition : <span id="proposition"></span></p>
+        <button id="supprimerBtn">Supprimer</button>
+
+
+      <button id="verifierBtn">Vérifier</button>
+      <div id="resultat"></div>
+      <div id="essaisRestants"></div>
+      <div id="historique">
+        <h3>Historique des essais</h3>
+        <ul id="liste-historique"></ul>
+      </div>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+  </body>
+</html>
